@@ -1,0 +1,178 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+
+body{
+    background-color: #635342;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.container{
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    max-height: 866px;
+    box-sizing: border-box;
+    background-color: #A65814;
+    box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+}
+
+.container .login{
+    max-width: 460px;
+    width: 100%;
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    padding: 100px 20px;
+    flex-direction: column;
+    gap: 36px;
+    color: #555555;
+}
+
+.login .logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.login form{
+    width: 466px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.login form fieldset{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login form fieldset div{
+    text-align: end;
+    font-size: 12px;
+}
+.esqueceu{
+    color: #302416;
+}
+
+.login form fieldset .forms{
+    display: flex;
+    background-color: #F1F3F6;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+form fieldset .forms input{
+    height: 46px;
+    background-color: #F1F3F6;
+    border-radius: 8px;
+    padding: 0 20px;
+    border: none;
+    width: 376px;
+
+}
+
+form fieldset .forms div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF7700;
+    width: 50px;
+    height: 46px;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+form fieldset button{
+    padding: 10px 0;
+    background-color: #FF7700;
+    border: none;
+    border-radius: 8px;
+    color: #FFF;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+
+.linhas{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #C2C2C2;
+}
+
+.linha{
+    width: 184px;
+    border: #C2C2C2 1px solid;
+}
+
+.cadastro{
+    justify-content: center;
+    display: flex;
+}
+
+.cadastro a{
+    text-decoration: none;
+    color: #302416;
+    border: 1px solid;
+    box-sizing: border-box;
+    padding: 10px 0;
+    width: 460px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.container .fundo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #FFF;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 120px;
+}
+
+.fundo img{
+    width: 521px;
+    height: 480px;
+}
+
+.fundo figure{
+    position: relative;
+}
+
+.container .fundo .titulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 280px   ;
+}
+
+.titulo span{
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.titulo p{
+    font-size: 24px;
+}

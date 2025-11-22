@@ -9,7 +9,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="../css/Caos.css">
+  <link rel="stylesheet" href="../static/css/caos.css">
   <title>Inicio</title>
 </head>
 
@@ -17,17 +17,17 @@
   <header>
     <div class="container-header">
       <div class="logo">
-        <img src="../img/logo vetor.svg" alt="">
+        <img src="../static/imgs/logo vetor.svg" alt="">
         <h2>CAOS</h2>
       </div>
       <nav>
         <a href="">Inicio</a>
-        <a href="../html/comunidade.html">Comunidade</a>
-        <a href="../html/troca_venda.html">Troca/Venda</a>
-        <a href="../html/doacoes.html">Doações</a>
-        <a href="../html/sobre.html">Sobre</a>
+        <a href="{{url_for('comunidade')}}">Comunidade</a>
+        <a href="{{url_for('mercado')}}">Troca/Venda</a>
+        <a href="{{url_for('doacao')}}">Doações</a>
+        <a href="{{url_for('sobre')}}">Sobre</a>
       </nav>
-      <button><a href="../html/login.html">Login</a></button>
+      <button><a href="{{url_for('login')}}">Login</a></button>
     </div>
 
   </header>
@@ -41,13 +41,13 @@
           <span>da leitura!</span>
         </h1>
         <p>Descubra todos os livros à espera de um novo leitor como você.</p>
-        <a href="../html/login.html">Acessar</a>
+        <a href="{{url_for('login')}}">Acessar</a>
       </div>
-      <img src="../img/cat-8415620_1280_2-removebg-preview 2.svg" alt="catbook">
+      <img src="../static/imgs/cat-8415620_1280_2-removebg-preview 2.svg" alt="catbook">
     </div>
   </div>
   <div class="separar">
-    <img src="../img/Frame 205.svg" alt="book">
+    <img src="../static/imgs/Frame 205.svg" alt="book">
   </div>
   <section class="genero-alta">
     <div class="genero-alta-container">
@@ -57,35 +57,35 @@
 
       <div class="generos">
         <div class="genero-container">
-          <img src="../img/Rectangle 20.svg" alt="capa genero">
+          <img src="../static/imgs/Rectangle 20.svg" alt="capa genero">
           <div class="info">
             <div class="texto">
               <h3>Romance</h3>
               <p>Explore agora!</p>
             </div>
-            <a href="#"><img src="../img/seta.svg" alt="seta"></a>
+            <a href="#"><img src="../static/imgs/seta.svg" alt="seta"></a>
           </div>
         </div>
 
         <div class="genero-container">
-          <img src="../img/Rectangle 21.svg" alt="capa genero">
+          <img src="../static/imgs/Rectangle 21.svg" alt="capa genero">
           <div class="info">
             <div class="texto">
               <h3>Terror</h3>
               <p>Explore agora!</p>
             </div>
-            <a href="#"><img src="../img/seta.svg" alt="seta"></a>
+            <a href="#"><img src="../static/imgs/seta.svg" alt="seta"></a>
           </div>
         </div>
 
         <div class="genero-container">
-          <img src="../img/Rectangle 22.svg" alt="capa genero">
+          <img src="../static/imgs/Rectangle 22.svg" alt="capa genero">
           <div class="info">
             <div class="texto">
               <h3>Ficção Científica</h3>
               <p>Explore agora!</p>
             </div>
-            <a href="#"><img src="../img/seta.svg" alt="seta"></a>
+            <a href="#"><img src="../static/imgs/seta.svg" alt="seta"></a>
           </div>
         </div>
       </div>
@@ -94,7 +94,7 @@
   <section class="sobre-caos">
     <div class="container">
       <div class="imagem">
-        <img src="../img/mulher-morena-sorridente-na-camisa-lendo-livro 1.svg" alt="Mulher lendo um livro">
+        <img src="../static/imgs/mulher-morena-sorridente-na-camisa-lendo-livro 1.svg" alt="Mulher lendo um livro">
       </div>
 
       <div class="texto">
@@ -109,7 +109,7 @@
           e veja nossa história
         </p>
 
-        <a href="#" class="botao">Saiba mais</a>
+        <a href="{{url_for('sobre')}}" class="botao">Saiba mais</a>
       </div>
     </div>
   </section>
@@ -120,7 +120,7 @@
       <!-- Livro 1 -->
       <div class="livro">
         <div class="livro-imagem">
-          <img src="../img/homens pretos.png" alt="Águas de Homens Pretos">
+          <img src="../static/imgs/homens pretos.png" alt="Águas de Homens Pretos">
         </div>
         <p class="livro-nome">Águas de Homens Pretos</p>
         <div class="livro-link">
@@ -132,7 +132,7 @@
       <!-- Livro 2 -->
       <div class="livro">
         <div class="livro-imagem">
-          <img src="../img/heartstopper.png" alt="Heartstopper – Boy meets Boy">
+          <img src="../static/imgs/heartstopper.png" alt="Heartstopper – Boy meets Boy">
         </div>
         <p class="livro-nome">Heartstopper–Boy meets Boy.</p>
         <div class="livro-link">
@@ -144,7 +144,7 @@
       <!-- Livro 3 -->
       <div class="livro">
         <div class="livro-imagem">
-          <img src="../img/pequeno principe.png" alt="O Pequeno Príncipe">
+          <img src="../static/imgs/pequeno principe.png" alt="O Pequeno Príncipe">
         </div>
         <p class="livro-nome">O pequeno príncipe</p>
         <div class="livro-link">
@@ -156,7 +156,7 @@
       <!-- Livro 4 -->
       <div class="livro">
         <div class="livro-imagem">
-          <img src="../img/mordida.png" alt="Mordida">
+          <img src="../static/imgs/mordida.png" alt="Mordida">
         </div>
         <p class="livro-nome">Mordida</p>
         <div class="livro-link">
@@ -184,7 +184,7 @@
     </div>
 
     <div class="imagem-comunidade">
-      <img src="../img/Group 85.svg" alt="Pessoas lendo livros">
+      <img src="../static/imgs/Group 85.svg" alt="Pessoas lendo livros">
     </div>
   </section>
   <footer class="footer">
