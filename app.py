@@ -22,9 +22,24 @@ def mercado():
 def doacao():
     return render_template('doacao.html')
 
+@app.route('/cadastro')
+def cadastro():
+    return render_template('cadastro.html')
+
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/verlivro', methods=['POST'])
+def verlivro():
+    nome = request.form['nome']
+    autor = request.form['autor']
+    valor = int(request.form['valor'])
+    if valor <= 30:
+        mensagem = 'Esse livro está apto para as vendas!'
+    else:
+        mensagem = 'Esse livro não está apto para as vendas!'
+    return render_template('livro_cadastrado.html', mensagem = mensagem, autor = autor, nome = nome)
 
 if __name__ == "__main__":
     app.run()

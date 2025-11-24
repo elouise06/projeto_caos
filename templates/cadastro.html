@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{url_for('login')}}" method="post">
+    <label for="nome">Digite seu nome:</label><br>
+    <input type="text" id="nome" name="nome"><br>
+    <label for="senha">Digite sua senha:</label><br>
+    <input type="password" id="senha" nome="senha">
+    <button type="submit">Verificar</button>
+    </form>
+</body>
+</html>

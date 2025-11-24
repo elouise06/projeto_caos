@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    CAOS - Mercado
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/mercado.css')}}">
+{% endblock %}
+
+{% block conteudo %}
+<main>
+    <form action="{{url_for('verlivro')}}" method="post">
+    <label for="nome">Digite o nome do livro</label><br>
+    <input type="text" id="nome" name="nome"><br>
+    <label for="senha">Digite o autor do livro:</label><br>
+    <input type="text" id="autor" name="autor"><br>
+    <label for="valor">Digite o valor do livro:</label><br>
+    <input type="text" name="valor" id="valor"><br>
+    <button type="submit">Adicionar</button>
+    </form>
+</main>
+{% endblock %}

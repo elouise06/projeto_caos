@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 
 {% block titulo %}
-    CAOS - Comunidade
+    CAOS - Livro cadastrado
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{{url_for('static', filename='css/comunidade.css')}}">
+
 {% endblock %}
 
 {% block conteudo %}
 <main>
-    <h2>testando comunidade</h2>
+    <p>Nome: {{ nome }}</p>
+    <p>Autor: {{ autor }}</p>
+    <h2>{{ mensagem }}</h2>
 </main>
 {% endblock %}

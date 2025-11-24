@@ -1,36 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../static/css/caos.css">
-  <title>Inicio</title>
-</head>
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/caos.css')}}">
+{% endblock %}
 
-<body>
-  <header>
-    <div class="container-header">
-      <div class="logo">
-        <img src="../static/imgs/logo vetor.svg" alt="">
-        <h2>CAOS</h2>
-      </div>
-      <nav>
-        <a href="">Inicio</a>
-        <a href="{{url_for('comunidade')}}">Comunidade</a>
-        <a href="{{url_for('mercado')}}">Troca/Venda</a>
-        <a href="{{url_for('doacao')}}">Doações</a>
-        <a href="{{url_for('sobre')}}">Sobre</a>
-      </nav>
-      <button><a href="{{url_for('login')}}">Login</a></button>
-    </div>
-
-  </header>
+{% block conteudo %}
   <div class="acesso">
     <div class="container-acesso">
       <div>
@@ -43,11 +17,11 @@
         <p>Descubra todos os livros à espera de um novo leitor como você.</p>
         <a href="{{url_for('login')}}">Acessar</a>
       </div>
-      <img src="../static/imgs/cat-8415620_1280_2-removebg-preview 2.svg" alt="catbook">
+      <img src="{{url_for('static', filename='imgs/gato_em_cima_livros.svg')}}" alt="catbook">
     </div>
   </div>
   <div class="separar">
-    <img src="../static/imgs/Frame 205.svg" alt="book">
+    <img src="{{url_for('static', filename='imgs/livros_espacados.svg')}}" alt="book">
   </div>
   <section class="genero-alta">
     <div class="genero-alta-container">
@@ -57,35 +31,35 @@
 
       <div class="generos">
         <div class="genero-container">
-          <img src="../static/imgs/Rectangle 20.svg" alt="capa genero">
+          <img src="{{url_for('static', filename='imgs/genero_romance.svg')}}" alt="capa genero">
           <div class="info">
             <div class="texto">
               <h3>Romance</h3>
               <p>Explore agora!</p>
             </div>
-            <a href="#"><img src="../static/imgs/seta.svg" alt="seta"></a>
+            <a href="#"><img src="{{url_for('static', filename='imgs/seta.svg')}}" alt="seta"></a>
           </div>
         </div>
 
         <div class="genero-container">
-          <img src="../static/imgs/Rectangle 21.svg" alt="capa genero">
+          <img src="{{url_for('static', filename='imgs/genero_terror.svg')}}" alt="capa genero">
           <div class="info">
             <div class="texto">
               <h3>Terror</h3>
               <p>Explore agora!</p>
             </div>
-            <a href="#"><img src="../static/imgs/seta.svg" alt="seta"></a>
+            <a href="#"><img src="{{url_for('static', filename='imgs/seta.svg')}}" alt="seta"></a>
           </div>
         </div>
 
         <div class="genero-container">
-          <img src="../static/imgs/Rectangle 22.svg" alt="capa genero">
+          <img src="{{url_for('static', filename='imgs/genero_fic_cient.svg')}}" alt="capa genero">
           <div class="info">
             <div class="texto">
               <h3>Ficção Científica</h3>
               <p>Explore agora!</p>
             </div>
-            <a href="#"><img src="../static/imgs/seta.svg" alt="seta"></a>
+            <a href="#"><img src="{{url_for('static', filename='imgs/seta.svg')}}" alt="seta"></a>
           </div>
         </div>
       </div>
@@ -94,7 +68,7 @@
   <section class="sobre-caos">
     <div class="container">
       <div class="imagem">
-        <img src="../static/imgs/mulher-morena-sorridente-na-camisa-lendo-livro 1.svg" alt="Mulher lendo um livro">
+        <img src="{{url_for('static', filename='imgs/sobre_pag_inicial.svg')}}" alt="Mulher lendo um livro">
       </div>
 
       <div class="texto">
@@ -120,7 +94,7 @@
       <!-- Livro 1 -->
       <div class="livro">
         <div class="livro-imagem">
-          <img src="../static/imgs/homens pretos.png" alt="Águas de Homens Pretos">
+          <img src="{{url_for('static', filename='imgs/homens_pretos.png')}}" alt="Águas de Homens Pretos">
         </div>
         <p class="livro-nome">Águas de Homens Pretos</p>
         <div class="livro-link">
@@ -132,7 +106,7 @@
       <!-- Livro 2 -->
       <div class="livro">
         <div class="livro-imagem">
-          <img src="../static/imgs/heartstopper.png" alt="Heartstopper – Boy meets Boy">
+          <img src="{{url_for('static', filename='imgs/heartstopper.png')}}" alt="Heartstopper – Boy meets Boy">
         </div>
         <p class="livro-nome">Heartstopper–Boy meets Boy.</p>
         <div class="livro-link">
@@ -144,7 +118,7 @@
       <!-- Livro 3 -->
       <div class="livro">
         <div class="livro-imagem">
-          <img src="../static/imgs/pequeno principe.png" alt="O Pequeno Príncipe">
+          <img src="{{url_for('static', filename='imgs/pequeno_principe.png')}}" alt="O Pequeno Príncipe">
         </div>
         <p class="livro-nome">O pequeno príncipe</p>
         <div class="livro-link">
@@ -156,7 +130,7 @@
       <!-- Livro 4 -->
       <div class="livro">
         <div class="livro-imagem">
-          <img src="../static/imgs/mordida.png" alt="Mordida">
+          <img src="{{url_for('static', filename='imgs/mordida.png')}}" alt="Mordida">
         </div>
         <p class="livro-nome">Mordida</p>
         <div class="livro-link">
@@ -184,48 +158,7 @@
     </div>
 
     <div class="imagem-comunidade">
-      <img src="../static/imgs/Group 85.svg" alt="Pessoas lendo livros">
+      <img src="{{url_for('static', filename='imgs/comunidade_pag_inicial.svg')}}" alt="Pessoas lendo livros">
     </div>
   </section>
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-logo">
-        <h2>CAOS</h2>
-        <p>Comunidade de Acesso, Obras e Saberes!</p>
-      </div>
-
-      <div class="footer-links">
-        <div class="footer-column">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Careers</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h4>Quick Link</h4>
-          <ul>
-            <li><a href="#">Share Location</a></li>
-            <li><a href="#">Orders Tracking</a></li>
-            <li><a href="#">Size Guide</a></li>
-            <li><a href="#">FAQs</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="#">Terms & conditions</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-</body>
-
-</html>
+{% endblock %}
