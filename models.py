@@ -13,7 +13,7 @@ class Usuario(db.Model, UserMixin):
         self.nome = nome
         self.email = email
         self.senha = senha
-        ...
+        
     
     def __repr__(self):
         return "<Usuario {}>".format(self.nome)
@@ -21,12 +21,16 @@ class Usuario(db.Model, UserMixin):
 class Livro(db.Model):
     __tablename__= "livro"
     id = db.Column(db.Integer, primary_key = True)
-    nome = db.Column(db.String(100))
     ...
+    titulo = db.Column(db.String(100))
+    autor = db.Column(db.String(100))
+    editora = db.Column(db.String(100))
 
-    def __init__(self, nome):
-        self.nome = nome
+    
+
+    def __init__(self, titulo):
+        self.titulo = titulo
         ...
     
     def __repr__(self):
-        return "<Livro {}>".format(self.nome)
+        return "<Livro {}>".format(self.titulo)
