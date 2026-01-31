@@ -1,15 +1,97 @@
 {% extends "base.html" %}
 
-{% block titulo %}
-    CAOS - Doações
-{% endblock %}
+{% block titulo %}CAOS - Doações{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{{url_for('static', filename='css/doacao.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/doacao.css') }}">
 {% endblock %}
 
 {% block conteudo %}
 <main>
-    <h2>testando doações</h2>
+
+  <!-- BANNER -->
+  <section class="banner-doacao">
+    <img
+      src="{{ url_for('static', filename='imgs/Group 68.svg') }}"
+      alt="Banner de doações"
+    >
+  </section>
+
+  <!-- DOAÇÕES RECENTES -->
+  <section class="doacoes">
+    <div class="doacoes-container">
+
+      <h2 class="doacoes-titulo">Doações recentes</h2>
+
+      <div class="galeria-wrapper">
+
+        <!-- Seta esquerda -->
+        <button
+          class="galeria-seta esquerda"
+          type="button"
+          onclick="scrollGaleria(-1)"
+          aria-label="Ver doações anteriores"
+        >
+          ‹
+        </button>
+
+        <!-- GALERIA -->
+        <div class="galeria" id="galeria">
+
+          {% for i in range(10) %}
+          <div class="card-doacao">
+
+            <img
+              src="{{ url_for('static', filename='imgs/genero_fic_cient.svg') }}"
+              alt="Capa do livro"
+              class="card-imagem"
+            >
+
+            <div class="card-info">
+              <div class="card-texto">
+                <h3>Título do livro</h3>
+                <p>Explore agora!</p>
+              </div>
+
+              <a href="#" class="card-link" aria-label="Explorar livro">
+                <img
+                  src="{{ url_for('static', filename='imgs/seta.svg') }}"
+                  alt=""
+                >
+              </a>
+            </div>
+
+          </div>
+          {% endfor %}
+
+        </div>
+
+        <!-- Seta direita -->
+        <button
+          class="galeria-seta direita"
+          type="button"
+          onclick="scrollGaleria(1)"
+          aria-label="Ver próximas doações"
+        >
+          ›
+        </button>
+
+      </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+      function scrollGaleria(direcao) {
+        const galeria = document.getElementById('galeria');
+        const cardWidth = 301 + 24; // largura + gap
+        galeria.scrollBy({
+          left: direcao * cardWidth,
+          behavior: 'smooth'
+        });
+      }
+    </script>
+
+  </section>
+
 </main>
 {% endblock %}

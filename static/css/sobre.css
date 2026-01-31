@@ -1,0 +1,29 @@
+.saiba {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 1102px;
+
+    padding: 100px 20px;
+    margin: 0 auto;
+    font-family: Poppins;
+}
+
+.saiba section {
+    margin-bottom: 64px;
+    width: 100%;
+}
+
+.saiba h1,
+.saiba h2,
+.saiba p {
+    margin-bottom: 30px;
+}
+
+.saiba p {
+    width: 100%;
+    max-width: 950px;
+}

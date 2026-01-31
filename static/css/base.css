@@ -6,50 +6,143 @@ body{
   flex-direction: column;
   font-family: Poppins;
   }
-header{
+/* HEADER */
+header {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 88px;
   width: 100%;
+  height: 88px;
   background-color: #FFD98A;
 }
-header .container-header{
+
+/* CONTAINER */
+header .container-header {
   display: flex;
   align-items: center;
-  width: 1220px;
-  margin-right: 80px;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1220px;
+  padding: 0 24px;
 }
 
-header .logo{
+/* LOGO */
+header .logo {
   display: flex;
   align-items: center;
-  padding-inline: 130px;
 }
-header .logo h2{
+
+header .logo h2 {
   padding-left: 15px;
 }
 
-header nav a{
-  text-decoration: none;
-  color: black;
-  padding-inline: 30px;
+/* NAVEGAÇÃO */
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
-header button{
-  background-color: black;
-  color: white;
-  border-radius: 10px;
-  padding: 10px 28px;
-  border: none;
-  margin-left: 10px;
-}
-header button:hover{
-  background-color: #FF7700;
-}
-header button a{
+/* LINKS */
+header nav a {
+  position: relative;
   text-decoration: none;
-  color: white;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+/* LINHA ANIMADA */
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #FF7700;
+  transition: width 0.3s ease;
+}
+
+/* HOVER LINK */
+header nav a:hover {
+  color: #FF7700;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+/* BOTÃO LOGIN — PREMIUM */
+header button {
+  background-color: #000;
+  color: #ffffff;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 10px 26px;
+  margin-left: 16px;
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* FUNDO ANIMADO */
+header button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #FF7700;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+
+  z-index: 0;
+}
+
+/* HOVER BOTÃO */
+header button:hover::before {
+  transform: scaleX(1);
+}
+
+header button:hover {
+  border-color: #FF7700;
+}
+
+/* LINK DENTRO DO BOTÃO */
+header button a {
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 🔽 RESPONSIVO — COLUNA */
+@media (max-width: 900px) {
+  header {
+    height: auto;
+    padding: 16px 0;
+  }
+
+  header .container-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  header nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  header button {
+    margin-left: 0;
+  }
 }
 
 .footer {
