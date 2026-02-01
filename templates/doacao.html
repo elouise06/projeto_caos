@@ -11,10 +11,7 @@
 
   <!-- BANNER -->
   <section class="banner-doacao">
-    <img
-      src="{{ url_for('static', filename='imgs/Group 68.svg') }}"
-      alt="Banner de doações"
-    >
+    <img src="{{ url_for('static', filename='imgs/Group 68.svg') }}" alt="Banner de doações">
   </section>
 
   <!-- DOAÇÕES RECENTES -->
@@ -26,12 +23,8 @@
       <div class="galeria-wrapper">
 
         <!-- Seta esquerda -->
-        <button
-          class="galeria-seta esquerda"
-          type="button"
-          onclick="scrollGaleria(-1)"
-          aria-label="Ver doações anteriores"
-        >
+        <button class="galeria-seta esquerda" type="button" onclick="scrollGaleria(-1)"
+          aria-label="Ver doações anteriores">
           ‹
         </button>
 
@@ -41,11 +34,8 @@
           {% for i in range(10) %}
           <div class="card-doacao">
 
-            <img
-              src="{{ url_for('static', filename='imgs/genero_fic_cient.svg') }}"
-              alt="Capa do livro"
-              class="card-imagem"
-            >
+            <img src="{{ url_for('static', filename='imgs/genero_fic_cient.svg') }}" alt="Capa do livro"
+              class="card-imagem">
 
             <div class="card-info">
               <div class="card-texto">
@@ -54,10 +44,7 @@
               </div>
 
               <a href="#" class="card-link" aria-label="Explorar livro">
-                <img
-                  src="{{ url_for('static', filename='imgs/seta.svg') }}"
-                  alt=""
-                >
+                <img src="{{ url_for('static', filename='imgs/seta.svg') }}" alt="">
               </a>
             </div>
 
@@ -67,12 +54,7 @@
         </div>
 
         <!-- Seta direita -->
-        <button
-          class="galeria-seta direita"
-          type="button"
-          onclick="scrollGaleria(1)"
-          aria-label="Ver próximas doações"
-        >
+        <button class="galeria-seta direita" type="button" onclick="scrollGaleria(1)" aria-label="Ver próximas doações">
           ›
         </button>
 
@@ -90,8 +72,44 @@
         });
       }
     </script>
+    <section>
 
-  </section>
+    </section>
+    <section class="hero">
+      <div class="overlay-content">
+        <h2>Vamos contribuir com essa iniciativa?</h2>
+        <p>
+          Ao doar um livro, você realiza sonhos,<br>
+          abre caminhos e gera um novo futuro.<br>
+          Participe!
+        </p>
+        <button>Doar</button>
+      </div>
+    </section>
+    <section class="section-tutorial">
+      <h2>Como eu realizo a doação?</h2>
+      <div class="boxleft">
+        <img src="../static/imgs/Frame 217.svg" alt="">
+        <div>
+          <h3>1.Escolha do livro</h3>
+          <p>O passo principal é a escolha do livro que você deseja doar. É importante verificar o estado de conservação que seu livro se encontra, sua classificação(gênero, faixa etária) então assim, pode seguir o segundo passo!</p>
+        </div>
+      </div>
+      <div class="boxright">
+        <img src="../static/imgs/Frame 218.svg" alt="">
+        <div>
+          <h3>2.Adicionar o livro</h3>
+          <p>Essa estapa ela deve ser feita com muito cuidado. O formulário de envio de dados do livro deve ser preenchido de forma adequada e correta, para acessar essa área basta clilcar em <strong>DOAR</strong>.</p>
+        </div>
+      </div>
+      <div class="boxleft">
+        <img src="../static/imgs/Frame 219.svg" alt="">
+        <div>
+          <h3>3.Concluído!</h3>
+          <p>Após anexar seu livro e ele for aprovado pela verificação do sistema ele será colocado automaticamente em suas doações e publicado na página de doações. Caso acha erros o sistema entrará com notificações.</p>
+        </div>
+      </div>
+    </section>
 
 </main>
 {% endblock %}
