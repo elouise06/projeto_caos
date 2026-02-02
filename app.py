@@ -28,8 +28,8 @@ migrate = Migrate(app, db)
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-    return render_template('caos.html')
+def inicio():
+    return render_template('inicio.html')
 
 @app.route('/comunidade')
 def comunidade():

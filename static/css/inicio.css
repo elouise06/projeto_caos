@@ -1,0 +1,414 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* SECTION */
+.banner1 {
+    width: 100%;
+    background-color: #FFF0E1;
+    display: flex;
+    justify-content: center;
+}
+
+/* CONTAINER CENTRAL */
+.banner-container {
+    width: 100%;
+    max-width: 1220px;
+    padding: 80px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TEXTO */
+.banner-text {
+    width: 50%;
+    margin-left: 200px;
+}
+
+.banner-text h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #000;
+}
+
+.banner-text p {
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 420px;
+    margin-bottom: 32px;
+    color: #000;
+}
+
+/* BOTÃO À DIREITA DO TEXTO */
+.btn-area {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 420px;
+    margin-left: -40px;
+}
+
+.btn-area button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 20px;
+    background-color: #FFC85A;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* IMAGEM */
+.banner-image {
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-image img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+}
+
+
+/* Container geral */
+.genero-alta {
+    background-color: #ffffff;
+    margin-bottom: 100px;
+}
+
+/* Título */
+.titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 100px;
+}
+
+.titulo h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #000000;
+}
+
+/* Área dos cards */
+.generos {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* Cada card */
+.genero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Imagens */
+.genero-container img {
+    width: 280px;
+    height: 380px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+/* Texto + seta */
+.info {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texto h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222222;
+    margin-bottom: 5px;
+}
+
+.texto p {
+    font-size: 14px;
+    color: #777777;
+}
+
+.info a img {
+    width: 26px;
+    height: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .generos {
+        gap: 40px;
+    }
+
+    .genero-container {
+        width: 200px;
+    }
+
+    .genero-container img {
+        width: 200px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 600px) {
+    .genero-container {
+        width: 100%;
+    }
+
+    .genero-container img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Título */
+.titulo {
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 200px;
+    margin-bottom: 150px;
+    margin-left: -200px;
+}
+
+/* Grid principal */
+.grid-livros {
+    display: grid;
+    grid-template-columns: repeat(2, 280px);
+    gap: 180px 150px;
+}
+
+/* Cada item */
+.livro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Caixa da imagem */
+.livro-imagem {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 260px;
+    background-color: #fff;
+}
+
+.livro-imagem img {
+    height: auto;
+    display: block;
+}
+
+.livro:nth-child(1) img {
+    width: 180px;
+}
+
+.livro:nth-child(2) img {
+    width: 300px;
+}
+
+.livro:nth-child(3) img {
+    width: 300px;
+}
+
+.livro:nth-child(4) img {
+    width: 150px;
+}
+
+
+/* Nome do livro */
+.livro-nome {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #000;
+}
+
+/* "Veja mais" + seta */
+.livro-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.livro-link span {
+    font-size: 14px;
+    color: #666;
+    width: 100px;
+}
+
+.seta {
+    margin-left: 180px;
+    margin-top: -45px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #585656;
+    font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 650px) {
+    .grid-livros {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.comunidade {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.conteudo {
+    width: 45%;
+    margin-left: 300px;
+}
+
+.conteudo h2 {
+    font-size: 32px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.titulo-destaque {
+    background-color: #3b2410;
+    display: inline-block;
+    padding: 6px 22px;
+    transform: rotate(-2deg);
+    margin: 10px 0 25px 0;
+    margin-bottom: 70px;
+}
+
+.titulo-destaque span {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.descricao {
+    color: #222;
+    margin-bottom: 70px;
+    width: 350px;
+}
+
+.conteudo h3 {
+    color: #000;
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.btn-juntar {
+    background-color: #ff7b00;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    padding: 10px 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 235px;
+}
+
+.btn-juntar:hover {
+    background-color: #e86e00;
+}
+
+/* SECTION */
+.banner2 {
+  width: 100%;
+  background-color: #E7D6AB;
+  display: flex;
+  justify-content: center;
+}
+
+/* CONTAINER CENTRAL */
+.banner2-container {
+  width: 100%;
+  max-width: 1220px;
+  padding: 80px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* IMAGEM */
+
+.banner2-image img {
+  width: 100%;
+  height: auto;
+  margin-left: 80px;
+  margin-top: 100px;
+  margin-bottom: -86px;
+}
+
+/* TEXTO */
+.banner2-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  text-align: right;
+  margin-left: 100px;
+}
+
+.banner2-text h2 {
+  margin-bottom: 16px;
+  max-width: 600px;
+}
+
+.banner2-text p {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 32px;
+  max-width: 420px;
+  color: #000;
+  margin-left: 60px;
+}
+
+/* BOTÃO */
+.banner2-text .btn-area {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.banner2-text button {
+  padding: 10px 28px;
+  border: none;
+  border-radius: 20px;
+  background-color: #B5541A;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 430px;
+}
