@@ -16,100 +16,116 @@
 
   <!-- DOAÇÕES RECENTES -->
   <section class="doacoes">
-    <div class="doacoes-container">
-
-      <h2 class="doacoes-titulo">Doações recentes</h2>
+    <div class="container">
+      <h2>Doações recentes</h2>
 
       <div class="galeria-wrapper">
 
-        <!-- Seta esquerda -->
-        <button class="galeria-seta esquerda" type="button" onclick="scrollGaleria(-1)"
-          aria-label="Ver doações anteriores">
-          ‹
-        </button>
+        <button class="galeria-seta esquerda" onclick="scrollGaleria(-1)">‹</button>
 
-        <!-- GALERIA -->
         <div class="galeria" id="galeria">
-
           {% for i in range(10) %}
           <div class="card-doacao">
-
-            <img src="{{ url_for('static', filename='imgs/genero_fic_cient.svg') }}" alt="Capa do livro"
-              class="card-imagem">
-
+            <img src="{{ url_for('static', filename='imgs/genero_fic_cient.svg') }}" class="card-imagem">
             <div class="card-info">
               <div class="card-texto">
                 <h3>Título do livro</h3>
                 <p>Explore agora!</p>
               </div>
-
-              <a href="#" class="card-link" aria-label="Explorar livro">
-                <img src="{{ url_for('static', filename='imgs/seta.svg') }}" alt="">
+              <a class="card-link">
+                <img src="{{ url_for('static', filename='imgs/seta.svg') }}">
               </a>
             </div>
-
           </div>
           {% endfor %}
-
         </div>
 
-        <!-- Seta direita -->
-        <button class="galeria-seta direita" type="button" onclick="scrollGaleria(1)" aria-label="Ver próximas doações">
-          ›
-        </button>
+        <button class="galeria-seta direita" onclick="scrollGaleria(1)">›</button>
 
       </div>
     </div>
+  </section>
 
-    <!-- SCRIPT -->
-    <script>
-      function scrollGaleria(direcao) {
-        const galeria = document.getElementById('galeria');
-        const cardWidth = 301 + 24; // largura + gap
-        galeria.scrollBy({
-          left: direcao * cardWidth,
-          behavior: 'smooth'
-        });
-      }
-    </script>
-    <section>
+  <!-- HERO -->
+  <section class="hero">
+    <img src="{{ url_for('static', filename='imgs/bg-porta.svg') }}" class="hero-image">
+    <div class="overlay-content">
+      <h2>Vamos contribuir com essa iniciativa?</h2>
+      <p>
+        Ao doar um livro, você realiza sonhos,<br>
+        abre caminhos e gera um novo futuro.<br>
+        Participe!
+      </p>
+      <button>Doar</button>
+    </div>
+  </section>
 
-    </section>
-    <section class="hero">
-      <div class="overlay-content">
-        <h2>Vamos contribuir com essa iniciativa?</h2>
-        <p>
-          Ao doar um livro, você realiza sonhos,<br>
-          abre caminhos e gera um novo futuro.<br>
-          Participe!
-        </p>
-        <button>Doar</button>
-      </div>
-    </section>
-    <section class="section-tutorial">
-      <h2>Como eu realizo a doação?</h2>
-      <div class="boxleft">
-        <img src="../static/imgs/Frame 217.svg" alt="">
-        <div>
+  <!-- TUTORIAL -->
+  <section class="section-tutorial">
+    <h2>Como eu realizo a doação?</h2>
+    <section class="tutorialbox">
+      <div class="tutorial-row">
+        <img src="{{ url_for('static', filename='imgs/Frame 217.svg') }}">
+        <div class="tutorial-text">
           <h3>1.Escolha do livro</h3>
-          <p>O passo principal é a escolha do livro que você deseja doar. É importante verificar o estado de conservação que seu livro se encontra, sua classificação(gênero, faixa etária) então assim, pode seguir o segundo passo!</p>
+          <p>O passo principal é a escolha do livro que você deseja doar. É importante verificar o estado de conservação
+            que seu livro se encontra, sua classificação(gênero, faixa etária) então assim, pode seguir o segundo passo!
+          </p>
         </div>
       </div>
-      <div class="boxright">
-        <img src="../static/imgs/Frame 218.svg" alt="">
-        <div>
+
+      <div class="tutorial-row reverse">
+        <img src="{{ url_for('static', filename='imgs/Frame 218.svg') }}">
+        <div class="tutorial-text">
           <h3>2.Adicionar o livro</h3>
-          <p>Essa estapa ela deve ser feita com muito cuidado. O formulário de envio de dados do livro deve ser preenchido de forma adequada e correta, para acessar essa área basta clilcar em <strong>DOAR</strong>.</p>
+          <p>Essa estapa ela deve ser feita com muito cuidado. O formulário de envio de dados do livro deve ser
+            preenchido de forma adequada e correta, para acessar essa área basta clilcar em <strong>DOAR</strong>.</p>
         </div>
       </div>
-      <div class="boxleft">
-        <img src="../static/imgs/Frame 219.svg" alt="">
-        <div>
-          <h3>3.Concluído!</h3>
-          <p>Após anexar seu livro e ele for aprovado pela verificação do sistema ele será colocado automaticamente em suas doações e publicado na página de doações. Caso acha erros o sistema entrará com notificações.</p>
+
+      <div class="tutorial-row">
+        <img src="{{ url_for('static', filename='imgs/Frame 219.svg') }}">
+        <div class="tutorial-text">
+          <h3>3.Concluído</h3>
+          <p>Após anexar seu livro e ele for aprovado pela verificação do sistema ele será colocado automaticamente em
+            suas doações e publicado na página de doações. Caso acha erros o sistema entrará com notificações.</p>
         </div>
       </div>
     </section>
+
+  </section>
+
+  <!-- MINHAS DOAÇÕES -->
+  <section class="donations-section">
+    <div class="donations-header">
+      <h2>Minhas doações</h2>
+      <p>No ano de 2026 você contribuiu com 4 doações!</p>
+    </div>
+
+    <div class="books-grid">
+      {% for i in range(4) %}
+      <div class="book-card">
+        <img src="{{ url_for('static', filename='imgs/Frame 222.svg') }}">
+        <h4>Título</h4>
+        <p>Descrição</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="donation-cta">
+      <h3>Algum livro parado ai? doe ele agora!</h3>
+      <p>Ao doar um livro, você contribui com o meio ambiente, novos caminhos e linhas de conhecimentos serão abertas
+        para novas pessoas. A doação não é apenas um ato de compartilhar e sim de amor, participe!</p>
+      <a href="#" class="cta-button">Adicionar livro</a>
+    </div>
+  </section>
 
 </main>
+
+<script>
+  function scrollGaleria(direcao) {
+    const galeria = document.getElementById('galeria');
+    galeria.scrollBy({ left: direcao * 325, behavior: 'smooth' });
+  }
+</script>
 {% endblock %}

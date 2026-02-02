@@ -1,151 +1,104 @@
-/* =========================
-   VARIÁVEIS GLOBAIS
-========================= */
-:root {
-    --page-max-width: 1200px;
-
-    --card-width: 301px;
-    --card-height: 421px;
-    --card-radius: 16px;
-    --card-gap: 24px;
-
-    --title-size: 22px;
-    --subtitle-size: 18px;
-    --text-size: 14px;
-
-    --text-dark: #222;
-    --text-muted: #777;
-
-    --shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-}
-
-.doacoes-titulo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 80px;
-}
-
-/* =========================
-   RESET
-========================= */
+/* =====================
+   RESET GLOBAL
+===================== */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+}
+main{
+    width: 100%;
 }
 
 img {
     display: block;
-    max-width: 100%;
 }
 
-/* =========================
+/* =====================
+   CONTAINER PADRÃO
+===================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* =====================
    BANNER
-========================= */
+===================== */
 .banner-doacao img {
     width: 100%;
-    height: auto;
 }
 
-/* =========================
-   SEÇÃO DOAÇÕES
-========================= */
+/* =====================
+   DOAÇÕES RECENTES
+===================== */
 .doacoes {
-    padding: 64px 16px;
-    background-color: #fff;
+    padding: 80px 0;
 }
 
-.doacoes-container {
-    max-width: var(--page-max-width);
-    margin: 0 auto;
+.doacoes h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 40px;
 }
 
-/* =========================
-   TÍTULO
-========================= */
-.doacoes-titulo {
-    font-size: var(--title-size);
-    font-weight: 700;
-    margin-bottom: 32px;
-}
-
-/* =========================
-   GALERIA
-========================= */
+/* GALERIA */
 .galeria-wrapper {
     position: relative;
-    overflow: hidden;
 }
 
 .galeria {
     display: flex;
-    gap: var(--card-gap);
-    padding: 8px 48px;
+    gap: 50px;
+    padding: 16px 48px;
     overflow-x: auto;
     scroll-behavior: smooth;
 }
 
-/* esconde scrollbar */
 .galeria::-webkit-scrollbar {
     display: none;
 }
 
-.galeria {
-    scrollbar-width: none;
-}
-
-/* =========================
-   CARD
-========================= */
+/* CARD */
 .card-doacao {
-    flex: 0 0 auto;
-    width: var(--card-width);
-    cursor: pointer;
+    width: 301px;
+    flex-shrink: 0;
 }
 
 .card-imagem {
     width: 100%;
-    height: var(--card-height);
+    height: 421px;
     object-fit: cover;
-    border-radius: var(--card-radius);
-    box-shadow: var(--shadow);
+    border-radius: 16px;
 }
 
-/* =========================
-   INFO DO CARD
-========================= */
 .card-info {
-    margin-top: 12px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
 }
 
 .card-texto h3 {
-    font-size: var(--subtitle-size);
-    margin-bottom: 4px;
+    font-size: 18px;
 }
 
 .card-texto p {
-    font-size: var(--text-size);
-    color: var(--text-muted);
+    font-size: 14px;
+    color: #777;
 }
 
-/* seta pequena e discreta */
 .card-link img {
-    margin-left: 120px;
-    width: 25px;
-    height: 25px;
-    opacity: 0.7;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    width: 24px;
+    transition: transform 0.2s;
 }
 
 .card-doacao:hover .card-link img {
-    transform: translateX(3px);
-    opacity: 1;
+    transform: translateX(4px);
 }
 
-/* =========================
-   SETAS DA GALERIA
-========================= */
+/* SETAS */
 .galeria-seta {
     position: absolute;
     top: 50%;
@@ -157,8 +110,6 @@ img {
     background: #fff;
     font-size: 26px;
     cursor: pointer;
-    box-shadow: var(--shadow);
-    z-index: 5;
 }
 
 .galeria-seta.esquerda {
@@ -169,163 +120,178 @@ img {
     right: 8px;
 }
 
-/* =========================
-   RESPONSIVO
-========================= */
-@media (max-width: 768px) {
-    :root {
-        --card-width: 260px;
-        --card-height: 360px;
-    }
-}
-
+/* =====================
+   HERO
+===================== */
 .hero {
-    margin-top: 200px;
-    width: 100%;
-    height: 100vh;
-    background-image: url("../imgs/bg-porta.svg");
-    /* caminho da imagem */
-    background-size: cover;
-    background-position: center;
     position: relative;
+    width: 100%;
+    height: 600px;
+    background-color: #2b1a10;
+    overflow: hidden;
 }
 
-/* Conteúdo sobre a imagem */
+.hero-image {
+    position: absolute;
+    left: 8%;
+    bottom: 0;
+}
+
 .overlay-content {
     position: absolute;
     top: 50%;
-    left: 50%;
+    right: 10%;
     transform: translateY(-50%);
-    color: white;
-    max-width: 420px;
+    width: 420px;
     text-align: right;
+    color: #fff;
 }
 
 .overlay-content h2 {
-    width: 600px;
-    font-size: 26px;
-    margin-bottom: 30px;
+    font-size: 24px;
+    margin-bottom: 24px;
 }
 
 .overlay-content p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-top: 34px;
-    width: 600px;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 28px;
 }
 
 .overlay-content button {
-    margin-top: 34px;
-    margin-left: 500px;
-    background-color: #ff8c00;
-    color: #000;
+    padding: 10px 28px;
+    border-radius: 999px;
     border: none;
-    padding: 10px 30px;
-    font-size: 16px;
-    border-radius: 30px;
+    background-color: #ff8c00;
     cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.overlay-content button:hover{
+    background-color: #000;
+    color: #fff;
 }
 
-.overlay-content button:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}
-
-
+/* =====================
+   TUTORIAL
+===================== */
 .section-tutorial {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 96px;
-  font-family: Inter, Arial, sans-serif;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 100px 24px;
 }
 
-/* Título */
-.section-tutorial h2 {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 600;
-  color: #000;
-}
-
-/* Blocos */
-.section-tutorial .boxleft,
-.section-tutorial .boxright {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 56px;
-}
-
-/* Alternância */
-.section-tutorial .boxleft {
-  flex-direction: row;
-}
-
-.section-tutorial .boxright {
-  flex-direction: row-reverse;
-}
-
-/* Imagens */
-.section-tutorial img {
-  width: 300px;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-/* Texto */
-.section-tutorial .boxleft div,
-.section-tutorial .boxright div {
-  width: 520px;
-  max-width: 100%;
-}
-
-.section-tutorial h3 {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #000;
-}
-
-.section-tutorial p {
-  font-size: 15px;
-  line-height: 26px;
-  color: #444;
-}
-
-/* Destaque */
-.section-tutorial strong {
-  font-weight: 700;
-}
-
-/* 📱 Responsivo */
-@media (max-width: 900px) {
-  .section-tutorial {
-    padding: 64px 16px;
-    gap: 72px;
-  }
-
-  .section-tutorial .boxleft,
-  .section-tutorial .boxright {
+.tutorialbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    text-align: center;
-  }
+    max-width: 1000px;
+    margin-left: 140px;
+}
 
-  .section-tutorial img {
-    width: 220px;
-  }
+.section-tutorial h2 {
+    margin-bottom: 150px;
+    margin-top: 100px;
+}
 
-  .section-tutorial h3 {
-    font-size: 20px;
-  }
+.tutorial-row {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    margin-bottom: 80px;
+}
 
-  .section-tutorial p {
+.tutorial-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.tutorial-row img {
+    width: 300px;
+}
+
+.tutorial-text {
+    width: 420px;
+}
+
+.tutorial-text h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.tutorial-text p {
+    font-size: 16px;
+    line-height: 26px;
+}
+.tutorial-row.reverse .tutorial-text{
+    text-align: right;
+}
+
+/* =====================
+   MINHAS DOAÇÕES
+===================== */
+.donations-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 24px;
+}
+
+.donations-header {
+    margin-bottom: 64px;
+}
+
+.donations-header h2 {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.donations-header p {
     font-size: 14px;
-    line-height: 24px;
-  }
+    color: #555;
+}
+
+.books-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 120px;
+    margin-bottom: 80px
+}
+
+.book-card {
+    width: 150px;
+}
+
+.book-card img {
+    width: 100%;
+}
+
+/* CTA */
+.donation-cta {
+    padding-top: 80px;
+    max-width: 520px;
+}
+
+.donation-cta h3 {
+    font-size: 18px;
+}
+
+.donation-cta p {
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 26px;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-left: 350px;
+    margin-top: 60px;
+    padding: 10px 24px;
+    border-radius: 24px;
+    border: 1px solid #000;
+    text-decoration: none;
+    color: #000;
+}
+
+.cta-button:hover{
+    background-color: #000;
+    color: #fff;
 }
