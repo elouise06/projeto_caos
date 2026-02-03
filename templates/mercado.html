@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block titulo %}
-    CAOS - Mercado
+CAOS - Mercado
 {% endblock %}
 
 {% block css %}
@@ -9,5 +9,263 @@
 {% endblock %}
 
 {% block conteudo %}
-<h2>testando mercado</h2>
+<main>
+    <section class="banner1">
+        <div class="banner-container">
+
+            <div class="banner-text">
+                <h2>Espaço troca e venda</h2>
+                <p>
+                    Aqui você encontra uma variedade de livros inimagináveis,
+                    que vão direto para sua estante! Visite agora e encontre
+                    um para chamar de seu!
+                </p>
+            </div>
+
+            <div class="banner-image">
+                <img src="../static/imgs/Group 88 1.svg" alt="pessoas com livros">
+            </div>
+
+        </div>
+    </section>
+
+    <section class="search-filters">
+
+        <!-- Barra de pesquisa -->
+        <div class="search-box">
+            <img src="../static/imgs/Search.png" alt="Pesquisar" class="search-icon">
+            <input type="text" placeholder="Pesquisar livros..." oninput="handleSearch(this.value)">
+        </div>
+
+        <!-- Linha de filtros -->
+        <div class="filters-row">
+
+            <!-- Dropdown Gêneros -->
+            <div class="dropdown">
+                <button type="button" class="dropdown-btn" onclick="toggleGenres()">
+                    Gêneros <span>▾</span>
+                </button>
+
+                <ul class="dropdown-menu" id="genresMenu">
+                    <li onclick="toggleOption(this)">Ficção</li>
+                    <li onclick="toggleOption(this)">Romance</li>
+                    <li onclick="toggleOption(this)">Terror</li>
+                </ul>
+            </div>
+
+            <!-- Filtros toggle -->
+            <button class="filter-btn" onclick="toggleFilter(this)">Venda</button>
+            <button class="filter-btn" onclick="toggleFilter(this)">Doação</button>
+            <button class="filter-btn" onclick="toggleFilter(this)">Troca</button>
+            <button class="filter-btn" onclick="toggleFilter(this)">Em alta</button>
+
+            <!-- Menu etário -->
+            <div class="dropdown">
+                <button class="icon-filter" onclick="toggleAgeMenu()">
+                    <img src="../static/imgs/filter.svg" alt="Filtro etário">
+                </button>
+
+                <ul class="dropdown-menu right" id="ageMenu">
+                    <li onclick="toggleOption(this)">Infantil</li>
+                    <li onclick="toggleOption(this)">Infantojuvenil</li>
+                    <li onclick="toggleOption(this)">Juvenil</li>
+                    <li onclick="toggleOption(this)">Adulto</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- JS INLINE -->
+        <script>
+            function handleSearch(value) {
+                console.log('Pesquisa:', value);
+                // aqui você conecta com cards ou backend depois
+            }
+
+            function toggleFilter(button) {
+                button.classList.toggle('active');
+            }
+
+            function toggleGenres() {
+                document.getElementById('genresMenu').classList.toggle('show');
+            }
+
+            function toggleAgeMenu() {
+                document.getElementById('ageMenu').classList.toggle('show');
+            }
+
+            function toggleOption(item) {
+                item.classList.toggle('selected');
+            }
+
+            document.addEventListener('click', function (e) {
+                document.querySelectorAll('.dropdown').forEach(drop => {
+                    if (!drop.contains(e.target)) {
+                        drop.querySelectorAll('.dropdown-menu').forEach(menu => {
+                            menu.classList.remove('show');
+                        });
+                    }
+                });
+            });
+        </script>
+
+    </section>
+
+
+    <section class="genero-alta">
+        <div class="genero-alta-container">
+            <div class="titulo">
+                <h3>Gêneros em alta</h3>
+            </div>
+
+            <div class="generos">
+                <div class="genero-container">
+                    <img src="{{url_for('static', filename='imgs/genero_romance.svg')}}" alt="capa genero">
+                    <div class="info">
+                        <div class="texto">
+                            <h3>Romance</h3>
+                            <p>Explore agora!</p>
+                        </div>
+                        <a href="#"><img src="{{url_for('static', filename='imgs/seta.svg')}}" alt="seta"></a>
+                    </div>
+                </div>
+
+                <div class="genero-container">
+                    <img src="{{url_for('static', filename='imgs/genero_terror.svg')}}" alt="capa genero">
+                    <div class="info">
+                        <div class="texto">
+                            <h3>Terror</h3>
+                            <p>Explore agora!</p>
+                        </div>
+                        <a href="#"><img src="{{url_for('static', filename='imgs/seta.svg')}}" alt="seta"></a>
+                    </div>
+                </div>
+
+                <div class="genero-container">
+                    <img src="{{url_for('static', filename='imgs/genero_fic_cient.svg')}}" alt="capa genero">
+                    <div class="info">
+                        <div class="texto">
+                            <h3>Ficção Científica</h3>
+                            <p>Explore agora!</p>
+                        </div>
+                        <a href="#"><img src="{{url_for('static', filename='imgs/seta.svg')}}" alt="seta"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sugestoes">
+        <h2 class="titulo">Livros a venda</h2>
+
+        <div class="grid-livros">
+            <!-- Livro 1 -->
+            <div class="livro">
+                <div class="livro-imagem">
+                    <img src="{{url_for('static', filename='imgs/homens_pretos.png')}}" alt="Águas de Homens Pretos">
+                </div>
+                <p class="livro-nome">Águas de Homens Pretos</p>
+                <div class="livro-link">
+                    <span>Veja mais</span>
+                    <a class="seta" href="#">→</a>
+                </div>
+            </div>
+
+            <!-- Livro 2 -->
+            <div class="livro">
+                <div class="livro-imagem">
+                    <img src="{{url_for('static', filename='imgs/heartstopper.png')}}"
+                        alt="Heartstopper – Boy meets Boy">
+                </div>
+                <p class="livro-nome">Heartstopper–Boy meets Boy.</p>
+                <div class="livro-link">
+                    <span>Veja mais</span>
+                    <a class="seta" href="#">→</a>
+                </div>
+            </div>
+
+            <!-- Livro 3 -->
+            <div class="livro">
+                <div class="livro-imagem">
+                    <img src="{{url_for('static', filename='imgs/pequeno_principe.png')}}" alt="O Pequeno Príncipe">
+                </div>
+                <p class="livro-nome">O pequeno príncipe</p>
+                <div class="livro-link">
+                    <span>Veja mais</span>
+                    <a class="seta" href="#">→</a>
+                </div>
+            </div>
+
+            <!-- Livro 4 -->
+            <div class="livro">
+                <div class="livro-imagem">
+                    <img src="{{url_for('static', filename='imgs/mordida.png')}}" alt="Mordida">
+                </div>
+                <p class="livro-nome">Mordida</p>
+                <div class="livro-link">
+                    <span>Veja mais</span>
+                    <a class="seta" href="#">→</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="trocas">
+        <div class="container">
+            <h2>Livros para troca</h2>
+
+            <div class="galeria-wrapper">
+
+                <button class="galeria-seta esquerda" onclick="scrollGaleria(-1)">‹</button>
+
+                <div class="galeria" id="galeria">
+                    {% for i in range(10) %}
+                    <div class="card-doacao">
+                        <img src="{{ url_for('static', filename='imgs/genero_fic_cient.svg') }}" class="card-imagem">
+                        <div class="card-info">
+                            <div class="card-texto">
+                                <h3>Título do livro</h3>
+                                <p>Explore agora!</p>
+                            </div>
+                            <a class="card-link">
+                                <img src="{{ url_for('static', filename='imgs/seta.svg') }}">
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <button class="galeria-seta direita" onclick="scrollGaleria(1)">›</button>
+
+            </div>
+        </div>
+    </section>
+    <!-- MINHAS DOAÇÕES -->
+    <section class="donations-section">
+        <div class="donations-header">
+            <h2>Minhas vendas</h2>
+            <p>No ano de 2026 você contribuiu com o total de 2 vendas e 2 trocas de livros.</p>
+        </div>
+        <h3>Biblioteca de vendas</h3>
+        <div class="books-grid">
+            {% for i in range(4) %}
+            <div class="book-card">
+                <img src="{{ url_for('static', filename='imgs/Frame 222.svg') }}">
+                <h4>Título</h4>
+                <p>Descrição</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="donation-cta">
+            <h3>Algum livro parado ai? venda ou troque ele agora!</h3>
+            <p>Você pode realizar a venda daquele livro paradao na sua estande ou troca-lo por um livro que lhe chamou
+                atenção na nossa estante! comece agora e navegue!</p>
+            <a href="#" class="cta-button">Adicionar livro</a>
+        </div>
+    </section>
+    <script>
+        function scrollGaleria(direcao) {
+            const galeria = document.getElementById('galeria');
+            galeria.scrollBy({ left: direcao * 325, behavior: 'smooth' });
+        }
+    </script>
+</main>
 {% endblock %}
