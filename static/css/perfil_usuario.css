@@ -1,0 +1,368 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  background: #eaeaea;
+  padding: 30px;
+}
+
+.page {
+
+  max-width: 1200px;
+  margin: auto;
+  background: #fff;
+  display: flex;
+  min-height: 650px;
+}
+
+.content {
+  flex: 1;
+  padding: 40px;
+  width: 1440px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.subtitle {
+  color: #666;
+  margin: 6px 0 20px;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
+/* controle das telas */
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+.sidebar {
+  width: 260px;
+  background: #f3f3f3;
+  border-right: 1px solid #ccc;
+  padding: 20px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.user-icon {
+  width: 36px;
+  height: 36px;
+  background: #ddd;
+  border-radius: 50%;
+}
+
+.menu-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.menu-item {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu-item.active {
+  color: #ff8a00;
+  font-weight: bold;
+}
+
+.menu-item.sair {
+  color: red;
+  margin-top: 20px;
+}
+
+
+
+/* =========================
+   PERFIL
+========================= */
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+/* TÍTULO */
+.section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.section .subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.section hr {
+  border: none;
+  border-top: 1px solid #d9d9d9;
+  margin-bottom: 32px;
+}
+
+/* CONTAINER PERFIL */
+.profile-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  max-width: 900px;
+  margin-top: 80px;
+}
+
+/* LADO ESQUERDO */
+.profile-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 420px;
+}
+
+.profile-left label {
+  font-size: 14px;
+  color: #000;
+}
+
+.profile-left input {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.pnome {
+  margin-left: 90px;
+  margin-top: -18px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 10px;
+}
+
+/* TEXTO EMAIL / TELEFONE */
+.profile-left p {
+  font-size: 14px;
+  color: #000;
+}
+
+.profile-left a {
+  font-size: 14px;
+  color: #1a4cff;
+  text-decoration: underline;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+/* BOTÃO SALVAR */
+.save-btn {
+  margin-top: 40px;
+  margin-left: 350px;
+  width: 90px;
+  height: 32px;
+  background-color: #ff9f1c;
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  opacity: 0.9;
+}
+
+/* LADO DIREITO */
+.profile-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* AVATAR */
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ÍCONE USUÁRIO (opcional via ::before) */
+.avatar::before {
+  content: "";
+  width: 48px;
+  height: 48px;
+  background-image: url("../static/imgs/user-icon.svg");
+  /* se tiver */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* BOTÃO IMAGEM */
+.img-btn {
+  height: 28px;
+  padding: 0 14px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.img-btn:hover {
+  background-color: #f2f2f2;
+}
+
+/* TEXTO AJUDA */
+.profile-right p {
+  font-size: 11px;
+  color: #777;
+  text-align: center;
+  line-height: 1.4;
+}
+
+#senha .password-box {
+  margin-left: 200px;
+  margin-top: 60px;
+  width: 420px;
+}
+
+#senha .dadosver h2 {
+  margin-left: -200px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#senha .dadosver p {
+  margin-bottom: 40px;
+}
+
+#senha label {
+  display: block;
+  margin-top: 35px;
+  font-size: 14px;
+}
+
+#senha input {
+  width: 240px;
+  padding: 7px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+
+#senha p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+#senha .save-btn2 button {
+  margin-left: 250px;
+  width: 150px;
+  padding: 7px 22px;
+  background: #ff8a00;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#contribuicoes .table {
+  margin-left: 100px;
+  margin-top: 40px;
+  width: 620px;
+}
+
+#contribuicoes .table-header,
+#contribuicoes .table-row {
+  display: flex;
+  padding: 8px 0;
+}
+
+#contribuicoes .table-header {
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+}
+
+#contribuicoes .col-title {
+  width: 60%;
+}
+
+#contribuicoes .col-value {
+  width: 20%;
+  text-align: center;
+}
+
+#contribuicoes .col-type {
+  width: 20%;
+  text-align: center;
+}
+
+
+
+/* =========================
+   CAMPO DE SENHA COM OLHO
+========================= */
+
+.password-field {
+  position: relative;
+  width: 100%;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 40px;
+  /* espaço pro olho */
+}
+
+.eye-icon {
+  position: absolute;
+  right: 150px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
