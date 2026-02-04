@@ -9,15 +9,82 @@ CAOS - Cadastro de livro
 {% endblock %}
 
 {% block conteudo %}
-<main>
-    <form action="{{url_for('verlivro')}}" method="post">
-        <label for="nome">Digite o nome do livro</label><br>
-        <input type="text" id="nome" name="nome"><br>
-        <label for="senha">Digite o autor do livro:</label><br>
-        <input type="text" id="autor" name="autor"><br>
-        <label for="valor">Digite o valor do livro:</label><br>
-        <input type="text" name="valor" id="valor"><br>
-        <button type="submit">Adicionar</button>
-    </form>
+<main class="page">
+
+    <!-- LADO ESQUERDO -->
+    <section class="left">
+        <img src="img/vector 10.png" alt="" class="bg-shape">
+
+        <div class="left-content">
+            <h1>Vamos começar<br>sua venda</h1>
+
+            <img src="img/cat.png" alt="Gato" class="cat">
+        </div>
+    </section>
+
+    <!-- LADO DIREITO -->
+    <section class="right">
+        <form action="{{ url_for('verlivro') }}" method="post" class="form">
+
+            <h2>Dados do livro</h2>
+
+            <div class="field">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label for="autor">Autor:</label>
+                    <input type="text" id="autor" name="autor" required>
+                </div>
+
+                <div class="field small">
+                    <label for="ano">Ano de publicação:</label>
+                    <input type="number" id="ano" name="ano">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label>Tipo de capa:</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="capa" value="dura">
+                            Capa Dura
+                        </label>
+                        <label>
+                            <input type="radio" name="capa" value="brochura">
+                            Capa Brochura
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field small">
+                    <label for="genero">Gênero:</label>
+                    <input type="text" id="genero" name="genero">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label class="upload">
+                        Carregar imagem do livro
+                        <input type="file" name="imagem" accept="image/*" multiple>
+                    </label>
+                    <small>O máximo de uploads de imagens é 4*</small>
+                </div>
+
+                <div class="field small">
+                    <label for="valor">Valor desejado:</label>
+                    <input type="text" id="valor" name="valor">
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Continuar</button>
+
+        </form>
+    </section>
+
 </main>
 {% endblock %}

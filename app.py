@@ -49,7 +49,7 @@ def doacao():
 
 @app.route('/cadastro')
 def cadastro():
-    return render_template('cadastro.html')
+    return render_template('cadastro-dados.html')
 
 @app.route('/login')
 def login():
