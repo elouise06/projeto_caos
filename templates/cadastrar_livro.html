@@ -13,18 +13,17 @@ CAOS - Cadastro de livro
 
     <!-- LADO ESQUERDO -->
     <section class="left">
-        <img src="../static/imgs/Vector 10.svg" alt="" class="bg-shape">
+        <img src="img/Vector 10.svg" alt="" class="bg-shape">
 
         <div class="left-content">
             <h1>Vamos começar<br>sua venda</h1>
-
-            <img src="../static/imgs/gato_em_cima_livros.svg" alt="Gato" class="cat">
+            <img src="img/cat-8415620_1280_2-removebg-preview 2 (1).svg" alt="Gato" class="cat">
         </div>
     </section>
 
     <!-- LADO DIREITO -->
     <section class="right">
-        <form action="{{ url_for('verlivro') }}" method="post" class="form">
+        <form action="{{ url_for('verlivro') }}" method="post" class="form" enctype="multipart/form-data">
 
             <h2>Dados do livro</h2>
 
@@ -45,34 +44,42 @@ CAOS - Cadastro de livro
                 </div>
             </div>
 
+            <!-- LINHA 1 -->
             <div class="row">
                 <div class="field">
                     <label>Tipo de capa:</label>
                     <div class="radio-group">
                         <label>
-                            <input type="radio" name="capa" value="dura">
-                            Capa Dura
+                            <input type="radio" name="tipo_capa" value="dura" required>
+                            Capa dura
                         </label>
                         <label>
-                            <input type="radio" name="capa" value="brochura">
-                            Capa Brochura
+                            <input type="radio" name="tipo_capa" value="brochura">
+                            Brochura
                         </label>
                     </div>
                 </div>
 
-                <div class="field small">
-                    <label for="genero">Gênero:</label>
-                    <input type="text" id="genero" name="genero">
+                <div class="field">
+                    <label>Livro para troca?</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="troca" value="sim" required>
+                            Sim
+                        </label>
+                        <label>
+                            <input type="radio" name="troca" value="nao">
+                            Não
+                        </label>
+                    </div>
                 </div>
             </div>
 
+            <!-- LINHA 2 -->
             <div class="row">
                 <div class="field">
-                    <label class="upload">
-                        Carregar imagem do livro
-                        <input type="file" name="imagem" accept="image/*" multiple>
-                    </label>
-                    <small>O máximo de uploads de imagens é 4*</small>
+                    <label for="genero">Gênero:</label>
+                    <input type="text" id="genero" name="genero">
                 </div>
 
                 <div class="field small">
@@ -81,10 +88,31 @@ CAOS - Cadastro de livro
                 </div>
             </div>
 
+            <!-- LINHA 3 -->
+            <div class="field">
+                <label class="upload">
+                    Carregar imagem do livro
+                    <input type="file" id="imagem" name="imagem[]" accept="image/*" multiple>
+                </label>
+                <small>O máximo de uploads de imagens é 4*</small>
+            </div>
+
             <button type="submit" class="btn">Continuar</button>
 
         </form>
     </section>
 
 </main>
+
+<!-- JS -->
+<script>
+    const inputImagem = document.getElementById('imagem');
+
+    inputImagem.addEventListener('change', () => {
+        if (inputImagem.files.length > 4) {
+            alert('Você pode enviar no máximo 4 imagens.');
+            inputImagem.value = '';
+        }
+    });
+</script>
 {% endblock %}

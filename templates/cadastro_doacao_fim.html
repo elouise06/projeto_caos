@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+CAOS - Cadastro de livro
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cadastrar_doacao_fim.css}}">
+{% endblock %}
+
+{% block conteudo %}
+<main class="success-page">
+
+    <img src="../static/imgs/gato_em_cima_livros.svg" alt="Gato com livros" class="cat">
+
+    <h1>Parabéns! doação concluída</h1>
+
+    <p>
+        Sabia que a cada doação você ganha um selo de doador?
+        em breve sua página de vendas será atualizada, não se preocupe.
+    </p>
+
+    <div class="buttons">
+        <a href="{{ url_for(doar_livro') }}">
+            <button class="btn primary">Cadastrar outro livro</button>
+        </a>
+
+        <a href="{{ url_for('lista_livros') }}">
+            <button class="btn secondary">Ver lista de livros</button>
+        </a>
+    </div>
+
+</main>
+{% endblock %}
