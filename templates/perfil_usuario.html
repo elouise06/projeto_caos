@@ -14,7 +14,7 @@
         <aside class="sidebar">
             <div class="user">
                 <div class="user-icon"></div>
-                <span>Usuario0123</span>
+                <span>{{ usuario.nome_usuario }}</span>
             </div>
 
             <div class="menu-title">Minha conta</div>
@@ -23,13 +23,14 @@
             <button class="menu-item" data-section="senha">senha/trocar senha</button>
             <button class="menu-item" data-section="contribuicoes">Minhas contribuições</button>
 
-            <button class="menu-item sair">Sair</button>
+            <a href="{{ url_for('logout') }}" class="menu-item sair">Sair</a>
+
         </aside>
 
-        <!-- CONTEÚDO -->
+
         <main class="content">
 
-            <!-- PERFIL -->
+
             <section id="perfil" class="section active">
                 <h2>Meu perfil</h2>
                 <p class="subtitle">Gerenciar e proteger sua conta</p>
@@ -37,19 +38,29 @@
 
                 <div class="profile-box">
                     <div class="profile-left">
-                        <label>Nome de usuário</label>
-                        <input type="text">
+                        <form method="POST">
+                            <label>Nome de usuário</label>
+                            <input type="text" name="nome_usuario" value="{{ usuario.nome_usuario }}">
 
-                        <label>Nome</label>
-                        <input type="text">
-                        <div class="pnome">
-                            <p>Nome do usuário pode ser alterado apenas uma vez.</p>
-                        </div>
+                            <label>Nome</label>
+                            <input type="text" name="nome" value="{{ usuario.nome }}">
+                            <div class="pnome">
+                                <p>Nome do usuário pode ser alterado apenas uma vez.</p>
+                            </div>
 
-                        <p>Email: el*********@gmail.com <a href="#">Trocar</a></p>
-                        <p>Número de telefone: **********00 <a href="#">Trocar</a></p>
+                            <label>Email</label>
+                            <input type="email" name="email" value="{{ usuario.email }}">
 
-                        <button class="save-btn">Salvar</button>
+                            <label>Telefone</label>
+                            <input type="text" name="telefone" value="{{ usuario.telefone }}">
+
+                            <button type="submit" class="save-btn">Salvar</button>
+                        </form>
+                        <form method="POST" action="{{ url_for('deletar_usuario') }}"
+                            onsubmit="return confirm('Tem certeza que deseja deletar sua conta?');">
+                            <button type="submit" class="delete-btn">Deletar Conta</button>
+                        </form>
+
                     </div>
 
                     <div class="profile-right">
@@ -62,36 +73,36 @@
                 </div>
             </section>
 
-            <!-- SENHA -->
             <section id="senha" class="section">
                 <h2>Senha/trocar senha</h2>
                 <p class="subtitle">Gerenciar e proteger sua conta</p>
                 <hr>
 
                 <div class="password-box">
+                    <form method="POST" action="{{ url_for('alterar_senha') }}">
+                        <label>Senha atual</label>
+                        <div class="password-field">
+                            <input type="password" name="senha_atual" id="senhaAtual" placeholder="********">
+                            <img src="img/olho-vermelho.png" id="toggleSenha" class="eye-icon" alt="Mostrar senha">
+                        </div>
 
-                    <label>Senha atual</label>
-                    <div class="password-field">
-                        <input type="password" id="senhaAtual" value="********">
-                        <img src="img/olho-vermelho.png" id="toggleSenha" class="eye-icon" alt="Mostrar senha">
-                    </div>
+                        <label>Nova senha</label>
+                        <input type="password" name="nova_senha" placeholder="Digite aqui">
 
-                    <label>Nova senha</label>
-                    <input type="password" placeholder="Digite aqui">
+                        <div class="dadosver">
+                            <h2>Dados para verificação</h2>
+                            <p>Email: {{ usuario.email }}</p>
+                            <p>Número de telefone: {{ usuario.telefone }}</p>
+                        </div>
 
-                    <div class="dadosver">
-                        <h2>Dados para verificação</h2>
-                        <p>Email: el*********@gmail.com</p>
-                        <p>Número de telefone: **********00</p>
-                    </div>
-
-                    <div class="save-btn2">
-                        <button>Alterar senha</button>
-                    </div>
+                        <div class="save-btn2">
+                            <button type="submit">Alterar senha</button>
+                        </div>
+                    </form>
                 </div>
             </section>
 
-            <!-- CONTRIBUIÇÕES -->
+
             <section id="contribuicoes" class="section">
                 <h2>Minhas contribuições</h2>
                 <p class="subtitle">Visualizar suas movimentações de livros</p>
@@ -100,36 +111,31 @@
                 <div class="table">
                     <div class="table-header">
                         <div class="col-title">Título do livro</div>
-                        <div class="col-value">Valor</div>
-                        <div class="col-type">Tipo</div>
+                        <div class="col-value">Autor</div>
+                        <div class="col-type">Valor</div>
                     </div>
 
+                    {% for livro in livros %}
                     <div class="table-row">
-                        <div class="col-title">Águas de homens pretos</div>
-                        <div class="col-value">26,89</div>
-                        <div class="col-type">Venda</div>
+                        <div class="col-title">{{ livro.titulo }}</div>
+                        <div class="col-value">{{ livro.autor }}</div>
+                        <div class="col-type">{{ livro.valor_desejado or '0,00' }}</div>
+                            <form method="POST" action="{{ url_for('deletar_livro', id=livro.id) }}"
+                                onsubmit="return confirm('Deseja realmente deletar este livro?');">
+                                <button type="submit" class="delete-btn">Deletar</button>
+                            </form>
+                        </div>
                     </div>
-
-                    <div class="table-row">
-                        <div class="col-title">Mordida</div>
-                        <div class="col-value">0,00</div>
-                        <div class="col-type">Doação</div>
-                    </div>
-
-                    <div class="table-row">
-                        <div class="col-title">Anna e o homem das andorinhas</div>
-                        <div class="col-value">12,36</div>
-                        <div class="col-type">Troca/venda</div>
-                    </div>
+                    {% endfor %}
                 </div>
             </section>
 
         </main>
     </div>
 
-    <!-- JAVASCRIPT -->
+
     <script>
-        /* ===== MENU LATERAL ===== */
+
         const menuItems = document.querySelectorAll('.menu-item[data-section]');
         const sections = document.querySelectorAll('.section');
 
@@ -144,7 +150,7 @@
             });
         });
 
-        /* ===== OLHO DA SENHA ===== */
+
         const senhaInput = document.getElementById('senhaAtual');
         const toggleSenha = document.getElementById('toggleSenha');
 

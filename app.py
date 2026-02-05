@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, session
+from flask import Flask, render_template, request, flash, redirect, session, url_for
 from utils import db, lm
 import os
 from flask_migrate import Migrate
@@ -115,6 +115,52 @@ def login():
 def load_user(user_id):
     return Usuario.query.get(int(user_id))
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash("Você saiu da sua conta.", "success")
+    return redirect(url_for('index'))
+
+@app.route('/livro/cadastro', methods=['GET', 'POST'])
+@login_required
+def cadastro_livro():
+    if request.method == 'POST':
+        titulo = request.form.get('titulo')
+        autor = request.form.get('autor')
+        ano_publicacao = request.form.get('ano_publicacao')
+        tipo_capa = request.form.get('tipo_capa')
+        troca = request.form.get('troca')
+        genero = request.form.get('genero')
+        valor_desejado = request.form.get('valor_desejado')
+
+        if not titulo or not autor or not tipo_capa or not troca:
+            flash("Preencha todos os campos obrigatórios", "warning")
+            return redirect('/livro/cadastro')
+
+        
+        novo_livro = Livro(
+            titulo=titulo,
+            autor=autor,
+            ano_publicacao=ano_publicacao,
+            genero=genero,
+            valor_desejado=valor_desejado,
+            usuario_id=current_user.id
+        )
+        db.session.add(novo_livro)
+        db.session.commit()
+
+        
+        return render_template('cadastro-livro-fim.html', livro=titulo)
+
+    return render_template('cadastrar_livro.html')
+
+
+@app.route('/livro/cadastro/fim', methods=['GET', 'POST'])
+@login_required
+def cadastro_livro_fim():
+    return render_template('cadastro-livro-fim.html')
+
 @app.route('/inicio')
 
 def inicio():
@@ -139,8 +185,72 @@ def doacao():
     return render_template('doacao.html')
 
 @app.route('/perfil')
+@login_required
 def perfil():
-    return render_template('perfil_usuario.html')
+    livros = current_user.livros
+    return render_template('perfil_usuario.html', livros=livros, usuario=current_user)
+
+@app.route('/usuario/atualizar', methods=['POST'])
+@login_required
+def atualizar_usuario():
+    nome = request.form.get('nome')
+    nome_usuario = request.form.get('nome_usuario')
+    email = request.form.get('email')
+    telefone = request.form.get('telefone')
+
+    current_user.nome = nome
+    current_user.nome_usuario = nome_usuario
+    current_user.email = email
+    current_user.telefone = telefone
+
+    db.session.commit()
+    flash("Dados atualizados com sucesso!", "success")
+    return redirect(url_for('perfil'))
+
+@app.route('/alterar_senha', methods=['POST'])
+@login_required
+def alterar_senha():
+    senha_atual = request.form.get('senha_atual')
+    nova_senha = request.form.get('nova_senha')
+
+    if not check_password_hash(current_user.senha, senha_atual):
+        flash("Senha atual incorreta!", "danger")
+        return redirect(url_for('perfil'))
+
+    if not nova_senha or len(nova_senha) < 6:
+        flash("A nova senha deve ter pelo menos 6 caracteres.", "warning")
+        return redirect(url_for('perfil'))
+
+    current_user.senha = generate_password_hash(nova_senha)
+    db.session.commit()
+    flash("Senha atualizada com sucesso!", "success")
+    return redirect(url_for('perfil'))
+
+@app.route('/usuario/deletar', methods=['POST'])
+@login_required
+def deletar_usuario():
+    user_id = current_user.id
+    logout_user()
+    usuario = Usuario.query.get_or_404(user_id)
+    db.session.delete(usuario)
+    db.session.commit()
+    flash("Sua conta foi deletada com sucesso.", "success")
+    return redirect(url_for('index'))
+
+@app.route('/livro/<int:id>/deletar', methods=['POST'])
+@login_required
+def deletar_livro(id):
+    livro = Livro.query.get_or_404(id)
+
+    if livro.usuario_id != current_user.id:
+        flash("Você não pode deletar este livro!", "danger")
+        return redirect(url_for('perfil'))
+
+    db.session.delete(livro)
+    db.session.commit()
+    flash("Livro deletado com sucesso!", "success")
+    return redirect(url_for('perfil'))
+
 
 if __name__ == "__main__":
     app.run()

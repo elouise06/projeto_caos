@@ -1,11 +1,10 @@
-{% extends "base.html" %}
+
 
 {% block titulo %}
-CAOS - Cadastro de livro
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/cadastrar_livro.css}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cadastrar_livro.css') }}">
 {% endblock %}
 
 {% block conteudo %}
@@ -13,17 +12,17 @@ CAOS - Cadastro de livro
 
     <!-- LADO ESQUERDO -->
     <section class="left">
-        <img src="img/Vector 10.svg" alt="" class="bg-shape">
+        <img src="{{url_for('static', filename='imgs/Vector 10.svg')}}" alt="" class="bg-shape">
 
         <div class="left-content">
             <h1>Vamos começar<br>sua venda</h1>
-            <img src="img/cat-8415620_1280_2-removebg-preview 2 (1).svg" alt="Gato" class="cat">
+            <img src="{{url_for('static', filename='imgs/cat-8415620_1280_2-removebg-preview 1.svg')}}" alt="Gato" class="cat">
         </div>
     </section>
 
     <!-- LADO DIREITO -->
     <section class="right">
-        <form action="{{ url_for('verlivro') }}" method="post" class="form" enctype="multipart/form-data">
+        <form action="{{ url_for('cadastro_livro') }}" method="post" class="form" enctype="multipart/form-data">
 
             <h2>Dados do livro</h2>
 
@@ -39,8 +38,8 @@ CAOS - Cadastro de livro
                 </div>
 
                 <div class="field small">
-                    <label for="ano">Ano de publicação:</label>
-                    <input type="number" id="ano" name="ano">
+                    <label for="ano_publicacao">Ano de publicação:</label>
+                    <input type="texT" id="ano_publicacao" name="ano_publicacao">
                 </div>
             </div>
 
@@ -83,8 +82,8 @@ CAOS - Cadastro de livro
                 </div>
 
                 <div class="field small">
-                    <label for="valor">Valor desejado:</label>
-                    <input type="text" id="valor" name="valor">
+                    <label for="valor_desejado">Valor desejado:</label>
+                    <input type="text" id="valor_desejado" name="valor_desejado">
                 </div>
             </div>
 

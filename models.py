@@ -37,12 +37,13 @@ class Livro(db.Model):
 
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
     
-    def __init__(self, titulo, autor, genero, ano_publicacao, valor_desejado):
+    def __init__(self, titulo, autor, genero, ano_publicacao, valor_desejado, usuario_id):
         self.titulo = titulo
         self.autor = autor
         self.genero = genero
         self.ano_publicacao = ano_publicacao
         self.valor_desejado = valor_desejado
+        self.usuario_id = usuario_id
     
     def __repr__(self):
         return "<Livro {} - autor {}>".format(self.titulo, self.autor)
