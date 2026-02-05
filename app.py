@@ -237,20 +237,6 @@ def deletar_usuario():
     flash("Sua conta foi deletada com sucesso.", "success")
     return redirect(url_for('index'))
 
-@app.route('/livro/<int:id>/deletar', methods=['POST'])
-@login_required
-def deletar_livro(id):
-    livro = Livro.query.get_or_404(id)
-
-    if livro.usuario_id != current_user.id:
-        flash("Você não pode deletar este livro!", "danger")
-        return redirect(url_for('perfil'))
-
-    db.session.delete(livro)
-    db.session.commit()
-    flash("Livro deletado com sucesso!", "success")
-    return redirect(url_for('perfil'))
-
 
 if __name__ == "__main__":
     app.run()

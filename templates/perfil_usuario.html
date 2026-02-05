@@ -114,19 +114,24 @@
                         <div class="col-value">Autor</div>
                         <div class="col-type">Valor</div>
                     </div>
+                        {% for livro in livros %}
+                        <div class="table-row">
+                            <div class="col-title">{{ livro.titulo }}</div>
+                            <div class="col-value">{{ livro.autor }}</div>
+                            <div class="col-type">{{ livro.valor_desejado or '0,00' }}</div>
 
-                    {% for livro in livros %}
-                    <div class="table-row">
-                        <div class="col-title">{{ livro.titulo }}</div>
-                        <div class="col-value">{{ livro.autor }}</div>
-                        <div class="col-type">{{ livro.valor_desejado or '0,00' }}</div>
-                            <form method="POST" action="{{ url_for('deletar_livro', id=livro.id) }}"
-                                onsubmit="return confirm('Deseja realmente deletar este livro?');">
-                                <button type="submit" class="delete-btn">Deletar</button>
-                            </form>
+                            <div class="col-actions">
+                                <form method="POST" action="{{ url_for('deletar_livro', id=livro.id) }}"
+                                    onsubmit="return confirm('Deseja realmente deletar este livro?');">
+                                    <button type="submit" class="delete-btn">Excluir</button>
+                                </form>
+
+                                <a href="{{ url_for('editar_livro', id=livro.id) }}" class="edit-btn">
+                                    Editar
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    {% endfor %}
+                        {% endfor %}
                 </div>
             </section>
 
