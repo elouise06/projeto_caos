@@ -251,6 +251,14 @@ def deletar_livro(id):
     flash("Livro deletado com sucesso!", "success")
     return redirect(url_for('perfil'))
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('acesso_negado_2.html'), 404
+
+@app.errorhandler(401)
+def unauthorized(error):
+    return render_template('acesso_negado.html'), 401
+
 
 if __name__ == "__main__":
     app.run()
