@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Livro</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/detalhar_livro.css')}}">
+</head>
+
+<body>
+
+    <main class="book-page">
+
+        <section class="book-container">
+
+            <!-- IMAGENS -->
+            <div class="book-images">
+                <div class="main-image">
+                    <img id="mainImage" src="{{ url_for('static', filename='imgs/cehsffxcd8xcydfnw2ryffnl8q7b5wa5eshi_640x640+fill_ffffff.jpg') }}"
+                        alt="Livro">
+                </div>
+
+                <div class="thumbnails">
+                    <img src="{{ url_for('static', filename='imgs/159810-800-800.webp') }}" class="active" onclick="changeImage(this)">
+                    <img src="{{ url_for('static', filename='imgs/cehsffxcd8xcydfnw2ryffnl8q7b5wa5eshi_640x640+fill_ffffff.jpg') }}"
+                        onclick="changeImage(this)">
+                    <img src="{{ url_for('static', filename='imgs/e5bmo70cm4jnyznvsa6hoppefhcqjuk5hoij_640x640+fill_ffffff.jpg') }}"
+                        onclick="changeImage(this)">
+                    <img src="{{ url_for('static', filename='imgs/pequeno-principe-antoine-saint-exupery_large.webp') }}" onclick="changeImage(this)">
+                </div>
+            </div>
+
+            <!-- INFORMAÇÕES -->
+            <div class="book-info">
+                <h1 class="title">O Pequeno Príncipe </h1>
+                <p class="author">Autor: Antoine de Saint-Exupéry</p>
+
+                <p class="description">
+                    Le Petit Prince é uma novela do escritor, aviador aristocrata francês Antoine de Saint-Exupéry,
+                    originalmente publicada em inglês e francês em abril de 1943 nos Estados Unidos. Durante a Segunda
+                    Guerra Mundial, Saint-Exupéry foi exilado para a América do Norte.
+                </p>
+
+                <button class="buy-button">Adquirir Livro</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        function changeImage(element) {
+            const mainImage = document.getElementById("mainImage");
+            const thumbnails = document.querySelectorAll(".thumbnails img");
+
+            mainImage.src = element.src;
+
+            thumbnails.forEach(img => img.classList.remove("active"));
+            element.classList.add("active");
+        }
+    </script>
+
+</body>
+
+</html>
