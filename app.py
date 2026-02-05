@@ -230,10 +230,10 @@ def alterar_senha():
 @login_required
 def deletar_usuario():
     user_id = current_user.id
-    logout_user()
     usuario = Usuario.query.get_or_404(user_id)
     db.session.delete(usuario)
     db.session.commit()
+    logout_user()  # 
     flash("Sua conta foi deletada com sucesso.", "success")
     return redirect(url_for('index'))
 
@@ -251,14 +251,22 @@ def deletar_livro(id):
     flash("Livro deletado com sucesso!", "success")
     return redirect(url_for('perfil'))
 
-@app.errorhandler(404)
-def page_not_found(error):
-    return render_template('acesso_negado_2.html'), 404
+@app.route('/livro/<int:id>/editar', methods=['POST'])
+@login_required
+def editar_livro(id):
+    livro = Livro.query.get_or_404(id)
 
-@app.errorhandler(401)
-def unauthorized(error):
-    return render_template('acesso_negado.html'), 401
+    if livro.usuario_id != current_user.id:
+        flash("Você não pode editar este livro!", "danger")
+        return redirect(url_for('perfil'))
 
+    livro.titulo = request.form.get('titulo')
+    livro.autor = request.form.get('autor')
+    livro.valor_desejado = request.form.get('valor_desejado')
+
+    db.session.commit()
+    flash("Livro atualizado com sucesso!", "success")
+    return redirect(url_for('perfil'))
 
 if __name__ == "__main__":
     app.run()

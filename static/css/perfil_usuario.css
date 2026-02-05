@@ -366,3 +366,12 @@ p {
   height: 20px;
   cursor: pointer;
 }
+
+.edit-fields{
+  margin-left: 70px;
+}
+
+.edit-fields input{
+  margin-top:  20px;
+  margin-left: 20px;
+}

@@ -11,7 +11,7 @@ class Usuario(db.Model, UserMixin):
     senha = db.Column(db.String(300), nullable=False)
     telefone = db.Column(db.String(20), nullable=False)
 
-    livros = db.relationship('Livro', backref='usuario', lazy=True)
+    livros = db.relationship('Livro', backref='usuario', cascade='all, delete-orphan')
     posts = db.relationship('Post', backref='usuario', lazy=True)
     comentarios = db.relationship('Comentario', backref='usuario', lazy=True)
 
