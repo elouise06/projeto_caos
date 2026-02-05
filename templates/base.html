@@ -28,7 +28,15 @@
                 <a href="{{url_for('doacao')}}">Doações</a>
                 <a href="{{url_for('sobre')}}">Sobre</a>
             </nav>
-            <button><a href="{{url_for('login')}}">Login</a></button>
+
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('perfil') }}">
+                    <img src="{{ url_for('static', filename='imgs/conta_perfil.png') }}" alt="Perfil" class="img-perfil">
+                </a>
+            {% else %}
+                <button><a href="{{ url_for('login') }}">Login</a></button>
+            {% endif %}
+
         </div>
 
     </header>

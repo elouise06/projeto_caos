@@ -17,7 +17,7 @@
                     um para chamar de seu!
                 </p>
 
-                <a href="../templates/mercado.html" class="btn-area">
+                <a href="{{ url_for('mercado')}}" class="btn-area">
                     <button>Acessar</button>
                 </a>
             </div>
@@ -75,7 +75,7 @@
         <div class="banner2-container">
 
             <div class="banner2-image">
-                <img src="../static/imgs/donationimg.svg" alt="doação de livros">
+                <img src="{{url_for('static', filename='imgs/donationimg.svg')}}" alt="doação de livros">
             </div>
 
             <div class="banner2-text">
@@ -85,7 +85,7 @@
                     gera um novo futuro. Participe!
                 </p>
 
-                <a href="../templates/doacao.html" class="btn-area">
+                <a href="{{url_for('doacao')}}" class="btn-area">
                     <button>Doar</button>
                 </a>
             </div>
@@ -97,7 +97,7 @@
         <h2 class="titulo">Sugestões de leitura</h2>
 
         <div class="grid-livros">
-            <!-- Livro 1 -->
+            
             <div class="livro">
                 <div class="livro-imagem">
                     <img src="{{url_for('static', filename='imgs/homens_pretos.png')}}" alt="Águas de Homens Pretos">
@@ -109,7 +109,7 @@
                 </div>
             </div>
 
-            <!-- Livro 2 -->
+            
             <div class="livro">
                 <div class="livro-imagem">
                     <img src="{{url_for('static', filename='imgs/heartstopper.png')}}"
@@ -122,7 +122,7 @@
                 </div>
             </div>
 
-            <!-- Livro 3 -->
+            
             <div class="livro">
                 <div class="livro-imagem">
                     <img src="{{url_for('static', filename='imgs/pequeno_principe.png')}}" alt="O Pequeno Príncipe">
@@ -134,7 +134,7 @@
                 </div>
             </div>
 
-            <!-- Livro 4 -->
+            
             <div class="livro">
                 <div class="livro-imagem">
                     <img src="{{url_for('static', filename='imgs/mordida.png')}}" alt="Mordida">

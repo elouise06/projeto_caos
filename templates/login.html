@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAOS - Login</title>
-    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
@@ -15,7 +15,7 @@
                 <figure><img src="{{url_for('static', filename='imgs/logo_caos.png')}}" alt=""></figure>
                 <span>Faça login com a sua conta</span>
             </div>
-            <form action="...">
+            <form action="{{ url_for('login') }}", method="post">
                 <fieldset>
                     <label for="email">Email</label>
                     <div class="forms">
@@ -41,7 +41,7 @@
                 <div class="linha"></div>
             </div>
             <div class="cadastro">
-                <a href="{{url_for('cadastro')}}">Cadastra-se</a>
+                <a href="{{url_for('cadastro_etapa1')}}">Cadastra-se</a>
             </div>
         </section>
         <section class="fundo">
