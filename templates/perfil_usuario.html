@@ -38,22 +38,15 @@
 
                 <div class="profile-box">
                     <div class="profile-left">
-                        <form method="POST">
+                        <form method="POST" action="{{ url_for('atualizar_usuario') }}">
                             <label>Nome de usuário</label>
                             <input type="text" name="nome_usuario" value="{{ usuario.nome_usuario }}">
-
                             <label>Nome</label>
                             <input type="text" name="nome" value="{{ usuario.nome }}">
-                            <div class="pnome">
-                                <p>Nome do usuário pode ser alterado apenas uma vez.</p>
-                            </div>
-
                             <label>Email</label>
                             <input type="email" name="email" value="{{ usuario.email }}">
-
                             <label>Telefone</label>
                             <input type="text" name="telefone" value="{{ usuario.telefone }}">
-
                             <button type="submit" class="save-btn">Salvar</button>
                         </form>
                         <form method="POST" action="{{ url_for('deletar_usuario') }}"
@@ -131,7 +124,21 @@
                                 </a>
                             </div>
                         </div>
-                        {% endfor %}
+                    </div>
+                
+                        <form method="POST"
+                            action="{{ url_for('editar_livro', id=livro.id) }}"
+                            class="edit-form">
+
+                            <div class="edit-fields">
+                                <input type="text" name="titulo" value="{{ livro.titulo }}" placeholder="Título">
+                                <input type="text" name="autor" value="{{ livro.autor }}" placeholder="Autor">
+                                <input type="text" name="valor_desejado" value="{{ livro.valor_desejado or '0,00' }}" placeholder="Valor">
+                            </div>
+
+                            <button type="submit" class="edit-btn">Atualizar</button>
+                        </form>
+                    {% endfor %}
                 </div>
             </section>
 
