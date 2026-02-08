@@ -161,8 +161,6 @@ def cadastro_livro():
 def cadastro_livro_fim():
     return render_template('cadastro-livro-fim.html')
 
-@app.route('/inicio')
-
 def inicio():
     return render_template('inicio.html')
 
